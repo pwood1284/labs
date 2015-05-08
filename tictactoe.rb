@@ -49,13 +49,28 @@ end
 
 
 def print_board(board)
-  puts "     +     +     "
-  puts "  #{board[0]}  |  #{board[1]}  |  #{board[2]}  "
-  puts "-----+-----+-----"
-  puts "  #{board[3]}  |  #{board[4]}  |  #{board[5]} "
-  puts "-----+-----+-----"
-  puts "  #{board[6]}  |  #{board[7]}  |  #{board[8]} "
-  puts "     +     +     "
+  puts "                                               "
+  puts "                                               "
+  puts "  /////////   //////     ///     ///                                             "
+  puts "     //         //         //   //                   "
+  puts "     //         //           //                     "
+  puts "     //         //           //                    "
+  puts "     //         //           //                    "
+  puts "     //       //////         //                    "
+  puts "                                               "
+  puts "               +     +     "
+  puts "            #{board[0]}  |  #{board[1]}  |  #{board[2]}  "
+  puts "          -----+-----+-----"
+  puts "            #{board[3]}  |  #{board[4]}  |  #{board[5]} "
+  puts "          -----+-----+-----"
+  puts "            #{board[6]}  |  #{board[7]}  |  #{board[8]} "
+  puts "               +     +     "
+  puts "                                               "
+  puts "                                               "
+  puts "                                               "
+  puts "                                               "
+  puts "                                               "
+  puts "                                               "
 end
 
 def two_player_game_init()
@@ -173,8 +188,18 @@ def player_two_turn (board)
   end
 end
 
+require 'pry'
+def board_full(board)
+finished = false
 
+  if board[0].to_i + board[1].to_i + board[2].to_i + board[3].to_i + board[4].to_i + board[5].to_i +
+    board[6].to_i + board[7].to_i + board[8].to_i == 0
+      puts "It's a tie!"
+      finished = true
 
+  end
+end
+binding.pry
 
 
 def check(board)
@@ -203,11 +228,13 @@ def check(board)
   elsif board[2] == board[4] && board[2] == board[6]
     puts "Game Over! You Win!"
     finished = true
-
+  elsif board_full(board)
+    finished = true
   end
   exit if finished
 
 end
+
 
 
 greeting(board)
