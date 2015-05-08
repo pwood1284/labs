@@ -2,6 +2,7 @@ board = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 
 #Greets the user. Asks user if
+
 def greeting(board)
   puts "Would you like to play a game of Tic Tac Toe?"
   answer = gets.chomp.downcase
@@ -172,24 +173,41 @@ def player_two_turn (board)
   end
 end
 
+
+
+
+
 def check(board)
+  finished = false
   if board[0] == board[1] && board[0] == board[2]
     puts "Game Over! You Win!"
+    finished = true
   elsif board[3] == board[4] && board[3] == board[5]
     puts "Game Over! You Win!"
+    finished = true
   elsif board[6] == board[7] && board[6] == board[8]
     puts "Game Over! You Win!"
+    finished = true
   elsif board[0] == board[3] && board[0] == board[6]
     puts "Game Over! You Win!"
+    finished = true
   elsif board[1] == board[4] && board[1] == board[7]
     puts "Game Over! You Win!"
+    finished = true
   elsif board[2] == board[5] && board[2] == board[8]
     puts "Game Over! You Win!"
+    finished = true
   elsif board[0] == board[4] && board[0] == board[8]
     puts "Game Over! You Win!"
+    finished = true
   elsif board[2] == board[4] && board[2] == board[6]
     puts "Game Over! You Win!"
+    finished = true
+
   end
+  exit if finished
 
 end
+
+
 greeting(board)
