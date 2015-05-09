@@ -1,51 +1,82 @@
+# Gameboard array
 board = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
-
-#Greets the user. Asks user if
+# Asks the user if they would like to play a game.
+# Gets a yes or a no from the user.
+# Loops if user does not specifically answer with a yes or no.
+# If player answers yes function two_player? is called.
 
 def greeting(board)
-  puts "Would you like to play a game of Tic Tac Toe?"
-  answer = gets.chomp.downcase
-  if answer == "yes"
-    two_player?(board)
-  elsif answer == "no"
-    puts "That's ok. Comeback when you are ready to play!"
-
-  else
-    puts "Please answer with Yes or No"
-    greeting
-  end
-end
-
-def two_player?(board)
-  puts "Will you be playing somebody else?"
+  while true
+    puts "Would you like to play a game of Tic Tac Toe?"
+    puts
     answer = gets.chomp.downcase
-  if answer == "yes"
-    puts "Have fun you two!"
-    print_board(board)
-    player_one_turn(board)
-
-  elsif answer == "no"
-    cpu_player?(board)
-  else
-    puts "Please answer with Yes or No"
-      two_player?(board)
+      if answer == "yes" || answer == "no"
+        if answer == "yes"
+          game_mode?(board)
+        else
+          puts "Oh. Ok. Come back when you are ready to play"
+          break
+        end
+      else
+        puts "Please answer with Yes or No"
+    end
   end
 end
 
-def cpu_player?(board)
-puts "Would you like to play me then?"
-answer = gets.chomp.downcase
-  if answer == "yes"
-    puts "Sweet! Let's go!"
-    print_board(board)
-  elsif answer == "no"
-    puts "Oh. Ok. Maybe later then. Goodbye!"
-  else
-    puts "Please answer with Yes or No"
-  end
+
+# Asks user if they will be playing another human, the cpu,
+# or watch cpu play cpu
+
+
+
+def game_mode?(board)
+  while true
+    puts
+    puts "Select the number for the Game Mode you would like to play:"
+    puts "+-------------------+------------------------+-------------------------+ "
+    puts "|   Human vs Human  |    Human vs Computer   |   Computer vs Computer  | "
+    puts "|       (1)         |         (2)            |            (3)          | "
+    puts "|                   |         N/A            |            N/A          |"
+    puts "+-------------------+------------------------+-------------------------+"
+
+      answer = gets.chomp.to_s
+        if answer == "1" || answer == "2" || answer == "3"
+          if answer == "1"
+            puts "Have fun you two!"
+            player_one_turn(board)
+          elsif answer == "2"
+            human_vs_cpu(board)
+          else
+            cpu_vs_cpu(board)
+          break
+          puts "Select a number between (1-3)"
+        end
+      end
+end
 end
 
+def human_vs_cpu(board)
+  puts "Good luck!"
+
+    player1_vs_cpu_turn(board)
+end
+
+def cpu_vs_cpu(board)
+  puts "CPU VS CPU MODE"
+    print_board(board)
+    cpu_turn(board)
+end
+
+def cpu_turn(board)
+  if board.each do |x|
+    x = 0.to_i
+  next
+    random = rand(1..9)
+    board[random] == "O"
+end
+end
+end
 
 
 def print_board(board)
@@ -69,8 +100,6 @@ def print_board(board)
   puts "                                               "
   puts "                                               "
   puts "                                               "
-  puts "                                               "
-  puts "                                               "
 end
 
 def two_player_game_init()
@@ -80,6 +109,9 @@ def two_player_game_init()
 end
 
 def player_one_turn (board)
+  print_board(board)
+  puts
+  puts
   puts "Make your move player one:"
   player_one_move = gets.chomp.to_s
   if player_one_move == "1"
@@ -135,6 +167,8 @@ def player_one_turn (board)
 end
 
 def player_two_turn (board)
+  puts
+  puts
   puts "Make your move player two:"
   player_two_move = gets.chomp.to_s
   if player_two_move == "1"
@@ -188,7 +222,65 @@ def player_two_turn (board)
   end
 end
 
-require 'pry'
+
+def player1_vs_cpu_turn (board)
+  print_board(board)
+  puts
+  puts
+  puts "Make your move:"
+  player1_vs_cpu_move = gets.chomp.to_s
+  if player1_vs_cpu_move == "1"
+    board[0] = "X"
+    print_board(board)
+    check(board)
+    cpu_turn(board)
+  elsif player1_vs_cpu_move == "2"
+    board[1] = "X"
+    print_board(board)
+    check(board)
+    cpu_turn(board)
+  elsif player1_vs_cpu_move == "3"
+    board[2] = "X"
+    print_board(board)
+    check(board)
+    cpu_turn(board)
+  elsif player1_vs_cpu_move == "4"
+    board[3] = "X"
+    print_board(board)
+    check(board)
+    cpu_turn(board)
+  elsif player1_vs_cpu_move == "5"
+    board[4] = "X"
+    print_board(board)
+    check(board)
+    cpu_turn(board)
+  elsif player1_vs_cpu_move == "6"
+    board[5] = "X"
+    print_board(board)
+    check(board)
+    cpu_turn(board)
+  elsif player1_vs_cpu_move == "7"
+    board[6] = "X"
+    print_board(board)
+    check(board)
+    cpu_turn(board)
+  elsif player1_vs_cpu_move == "8"
+    board[7] = "X"
+    print_board(board)
+    check(board)
+    cpu_turn(board)
+  elsif player1_vs_cpu_move == "9"
+    board[8] = "X"
+    print_board(board)
+    check(board)
+    cpu_turn(board)
+  else
+    puts "Please select a number between 1 and 9"
+    player1_vs_cpu_turn(board)
+  end
+end
+
+# require 'pry'
 def board_full(board)
 finished = false
 
@@ -199,7 +291,7 @@ finished = false
 
   end
 end
-binding.pry
+# binding.pry
 
 
 def check(board)
