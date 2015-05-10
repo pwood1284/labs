@@ -8,14 +8,14 @@ board = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 def greeting(board)
   while true
-    puts "Would you like to play a game of Tic Tac Toe?"
+    puts "Would you like to play a game of Tic Tac Toe? (Y/N)"
     puts
     answer = gets.chomp.downcase
-      if answer == "yes" || answer == "no"
-        if answer == "yes"
+      if answer == "y" || answer == "n"
+        if answer == "y"
           game_mode?(board)
         else
-          puts "Oh. Ok. Come back when you are ready to play"
+          puts "Ok. Come back when you are ready to play"
           break
         end
       else
@@ -36,7 +36,7 @@ def game_mode?(board)
     puts "Select the number for the Game Mode you would like to play:"
     puts "+-------------------+------------------------+-------------------------+ "
     puts "|   Human vs Human  |    Human vs Computer   |   Computer vs Computer  | "
-    puts "|       (1)         |         (2)            |            (3)          | "
+    puts "|        (1)        |         (2)            |            (3)          | "
     puts "|                   |         N/A            |            N/A          |"
     puts "+-------------------+------------------------+-------------------------+"
 
@@ -44,7 +44,7 @@ def game_mode?(board)
         if answer == "1" || answer == "2" || answer == "3"
           if answer == "1"
             puts "Have fun you two!"
-            player_one_turn(board)
+            player_vs_player(board)
           elsif answer == "2"
             human_vs_cpu(board)
           else
@@ -58,24 +58,34 @@ end
 
 def human_vs_cpu(board)
   puts "Good luck!"
-
     player1_vs_cpu_turn(board)
 end
 
 def cpu_vs_cpu(board)
   puts "CPU VS CPU MODE"
-    print_board(board)
-    cpu_turn(board)
+    cpu_vs_cpu_turn(board)
 end
 
-def cpu_turn(board)
-  if board.each do |x|
-    x = 0.to_i
-  next
-    random = rand(1..9)
-    board[random] == "O"
-end
-end
+def cpu_vs_cpu_turn(board)
+board[0] = "X"
+print_board(board)
+board[4] = "O"
+print_board(board)
+board[2] = "X"
+print_board(board)
+board[1] = "O"
+print_board(board)
+board[7] = "X"
+print_board(board)
+board[5] = "O"
+print_board(board)
+board[3] = "X"
+print_board(board)
+board[6] = "O"
+print_board(board)
+board[8] = "O"
+print_board(board)
+puts "It's a tie!"
 end
 
 
@@ -105,10 +115,9 @@ end
 def two_player_game_init()
   puts "Player one, make your move by selecting a spot (1-9):"
   player_one_answer = gets.chomp.to_i
-
 end
 
-def player_one_turn (board)
+def player_vs_player(board)
   print_board(board)
   puts
   puts
@@ -175,47 +184,47 @@ def player_two_turn (board)
     board[0] = "O"
     print_board(board)
     check(board)
-    player_one_turn(board)
+    player_vs_player(board)
   elsif player_two_move == "2"
     board[1] = "O"
     print_board(board)
     check(board)
-    player_one_turn(board)
+    player_vs_player(board)
   elsif player_two_move == "3"
     board[2] = "O"
     print_board(board)
     check(board)
-    player_one_turn(board)
+    player_vs_player(board)
   elsif player_two_move == "4"
     board[3] = "O"
     print_board(board)
     check(board)
-    player_one_turn(board)
+    player_vs_player(board)
   elsif player_two_move == "5"
     board[4] = "O"
     print_board(board)
     check(board)
-    player_one_turn(board)
+    player_vs_player(board)
   elsif player_two_move == "6"
     board[5] = "O"
     print_board(board)
     check(board)
-    player_one_turn(board)
+    player_vs_player(board)
   elsif player_two_move == "7"
     board[6] = "O"
     print_board(board)
     check(board)
-    player_one_turn(board)
+    player_vs_player(board)
   elsif player_two_move == "8"
     board[7] = "O"
     print_board(board)
     check(board)
-    player_one_turn(board)
+    player_vs_player(board)
   elsif player_two_move == "9"
     board[8] = "O"
     print_board(board)
     check(board)
-    player_one_turn(board)
+    player_vs_player(board)
   else
     puts "Please select a number between 1 and 9"
     player_two_turn(board)
@@ -280,18 +289,19 @@ def player1_vs_cpu_turn (board)
   end
 end
 
-# require 'pry'
+require 'pry'
 def board_full(board)
 finished = false
 
-  if board[0].to_i + board[1].to_i + board[2].to_i + board[3].to_i + board[4].to_i + board[5].to_i +
-    board[6].to_i + board[7].to_i + board[8].to_i == 0
+  if board[0].to_i + board[1].to_i + board[2].to_i +
+     board[3].to_i + board[4].to_i + board[5].to_i +
+     board[6].to_i + board[7].to_i + board[8].to_i == 0
       puts "It's a tie!"
       finished = true
 
   end
 end
-# binding.pry
+binding.pry
 
 
 def check(board)
