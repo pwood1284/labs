@@ -1,3 +1,6 @@
+
+require 'pry'
+
 # Gameboard array
 board = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
@@ -74,7 +77,7 @@ def game_mode?(board)
     puts
     puts "+-------------------+------------------------+-------------------------+ "
     puts "|   Human vs Human  |    Human vs Computer   |   Computer vs Computer  | "
-    puts "|        (1)        |         (2)            |            (3)          | "
+    puts "|        (1)        |          (2)           |           (3)           | "
     puts "|                   |                        |                         |"
     puts "+-------------------+------------------------+-------------------------+"
     puts
@@ -104,7 +107,54 @@ def human_vs_cpu(board)
 end
 
 def cpu_vs_cpu(board)
+  puts
+  puts
+  puts
+  puts
+  puts
+  puts
   puts "CPU VS CPU MODE"
+  puts "                            ,--.    ,--.
+                           ((O ))--((O ))
+                         ,'_`--'____`--'_`.
+                        _:  ____________  :_
+                       | | ||::::::::::|| | |
+                       |_| |/__________ | |_|
+                         |________________|
+                      __..-'            `-..__
+                   .-| : .----------------. : |-.
+                 ,  || | | ______________/| | ||  .
+                 `. :| | ||  __  __  __  || | |; ,'
+               :`-._ ;.| || '--''--''--' || |,: _.-':
+               |    :  | || .----------. || |  :    |
+               :,--.;  | ||  (_) (_) (_) || |  :,--.;
+               (`-'|)  | ||______________|| |  (|`-')
+                `--'   | |/______________ | |   `--'
+                       |____________________|
+                        `.________________,'
+                         (_______)(_______)
+                        |        ||        |
+                        '--------''--------'  "
+    sleep(2)
+    puts"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    "
     cpu_vs_cpu_turn(board)
 end
 
@@ -113,65 +163,66 @@ def cpu_vs_cpu_turn(board)
   puts
   puts
   puts
-  board[0] = "X"
-  print_board(board)
   sleep(2)
-  puts
-  puts
-  puts
-  puts
-  board[4] = "O"
   print_board(board)
+  choose_cpu2_move(board)
+  puts
+  puts
+  puts
+  puts
   sleep(2)
-  puts
-  puts
-  puts
-  puts
-  board[2] = "X"
   print_board(board)
+  choose_cpu3_move(board)
+  puts
+  puts
+  puts
+  puts
   sleep(2)
-  puts
-  puts
-  puts
-  puts
-  board[1] = "O"
   print_board(board)
+  choose_cpu2_move(board)
+  puts
+  puts
+  puts
+  puts
   sleep(2)
-  puts
-  puts
-  puts
-  puts
-  board[7] = "X"
   print_board(board)
+  choose_cpu3_move(board)
+  puts
+  puts
+  puts
+  puts
   sleep(2)
-  puts
-  puts
-  puts
-  puts
-  board[5] = "O"
   print_board(board)
+  choose_cpu2_move(board)
+  puts
+  puts
+  puts
+  puts
   sleep(2)
-  puts
-  puts
-  puts
-  puts
-  board[3] = "X"
   print_board(board)
+  choose_cpu3_move(board)
+  puts"
+
+
+  "
   sleep(2)
-  puts
-  puts
-  puts
-  puts
-  board[6] = "O"
   print_board(board)
+  choose_cpu2_move(board)
+  puts"
+
+
+  "
   sleep(2)
-  puts
-  puts
-  puts
-  puts
-  board[8] = "O"
   print_board(board)
-  puts "It's a tie!"
+  choose_cpu3_move(board)
+  puts
+  puts
+  puts
+  puts
+  sleep(2)
+  print_board(board)
+  choose_cpu2_move(board)
+  print_board(board)
 end
 
 
@@ -327,47 +378,47 @@ def player1_vs_cpu_turn (board)
     board[0] = "X"
     print_board(board)
     check(board)
-    cpu_turn(board)
+    choose_cpu_move(board)
   elsif player1_vs_cpu_move == "2"
     board[1] = "X"
     print_board(board)
     check(board)
-    cpu_turn(board)
+    choose_cpu_move(board)
   elsif player1_vs_cpu_move == "3"
     board[2] = "X"
     print_board(board)
     check(board)
-    cpu_turn(board)
+    choose_cpu_move(board)
   elsif player1_vs_cpu_move == "4"
     board[3] = "X"
     print_board(board)
     check(board)
-    cpu_turn(board)
+    choose_cpu_move(board)
   elsif player1_vs_cpu_move == "5"
     board[4] = "X"
     print_board(board)
     check(board)
-    cpu_turn(board)
+    choose_cpu_move(board)
   elsif player1_vs_cpu_move == "6"
     board[5] = "X"
     print_board(board)
     check(board)
-    cpu_turn(board)
+    choose_cpu_move(board)
   elsif player1_vs_cpu_move == "7"
     board[6] = "X"
     print_board(board)
     check(board)
-    cpu_turn(board)
+    choose_cpu_move(board)
   elsif player1_vs_cpu_move == "8"
     board[7] = "X"
     print_board(board)
     check(board)
-    cpu_turn(board)
+    choose_cpu_move(board)
   elsif player1_vs_cpu_move == "9"
     board[8] = "X"
     print_board(board)
     check(board)
-    cpu_turn(board)
+    choose_cpu_move(board)
   else
     puts "Please select a number between 1 and 9"
     player1_vs_cpu_turn(board)
@@ -383,27 +434,12 @@ finished = false
      puts
      puts
      puts
+     puts"It's a tie!"
+
      puts
+     print_board(board)
      puts
-     puts
-     puts
-     puts
-     puts
-     puts
-     puts
-     puts "It's a tie!"
-     puts
-     puts
-     puts
-     puts
-     puts
-     puts
-     puts
-     puts
-     puts
-     puts
-     puts
-     puts
+
       finished = true
   end
 end
@@ -438,9 +474,47 @@ def check(board)
     finished = true
   end
   exit if finished
+end
+
+def choose_cpu_move(board)
+  puts
+  puts
+  puts
+  puts "CPU MOVE:"
+  sleep(2)
+   available = board.map{|x| x.to_i}.reject {|x| x.zero?}
+   board[available.sample-1]="O"
+   player1_vs_cpu_turn(board)
+end
+
+def choose_cpu2_move(board)
+  puts
+  puts
+  puts
+  puts "CPU MOVE:"
+  puts
+  sleep(2)
+   available = board.map{|x| x.to_i}.reject {|x| x.zero?}
+   board[available.sample-1]="X"
+   print_board(board)
+   check(board)
+   choose_cpu3_move(board)
+end
+def choose_cpu3_move(board)
+  puts
+  puts
+  puts
+  puts "CPU 2 MOVE:"
+  puts
+  sleep(2)
+   available = board.map{|x| x.to_i}.reject {|x| x.zero?}
+   board[available.sample-1]="O"
+   print_board(board)
+   check(board)
+   choose_cpu2_move(board)
 
 end
 
 
-
 greeting(board)
+binding.pry
