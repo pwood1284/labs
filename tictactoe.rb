@@ -90,32 +90,27 @@ end
 
 
 def print_board(board)
-  puts "                                               "
-  puts "                                               "
-  puts "  /////////   //////     ///     ///                                             "
-  puts "     //         //         //   //                   "
-  puts "     //         //           //                     "
-  puts "     //         //           //                    "
-  puts "     //         //           //                    "
-  puts "     //       //////         //                    "
-  puts "                                               "
-  puts "               +     +     "
-  puts "            #{board[0]}  |  #{board[1]}  |  #{board[2]}  "
-  puts "          -----+-----+-----"
-  puts "            #{board[3]}  |  #{board[4]}  |  #{board[5]} "
-  puts "          -----+-----+-----"
-  puts "            #{board[6]}  |  #{board[7]}  |  #{board[8]} "
-  puts "               +     +     "
-  puts "                                               "
-  puts "                                               "
-  puts "                                               "
-  puts "                                               "
+  puts
+  puts
+puts" _______ _          _______             _______         "
+puts"|__   __(_)        |__   __|           |__   __|        "
+puts"   | |   _  ___ ______| | __ _  ___ ______| | ___   ___ "
+puts"   | |  | |/ __|______| |/ _` |/ __|______| |/ _   / _  "
+puts"   | |  | | (__       | | (_| | (__       | | (_) |  __/"
+puts"   |_|  |_| ___|      |_| __,_| ___|      |_| ___/  ___|"
+puts
+puts
+  puts "                          +     +     "
+  puts "                       #{board[0]}  |  #{board[1]}  |  #{board[2]}  "
+  puts "                     -----+-----+-----"
+  puts "                       #{board[3]}  |  #{board[4]}  |  #{board[5]} "
+  puts "                     -----+-----+-----"
+  puts "                       #{board[6]}  |  #{board[7]}  |  #{board[8]} "
+  puts "                          +     +     "
+  puts
+  puts
 end
 
-def two_player_game_init()
-  puts "Player one, make your move by selecting a spot (1-9):"
-  player_one_answer = gets.chomp.to_i
-end
 
 def player_vs_player(board)
   print_board(board)
@@ -123,6 +118,7 @@ def player_vs_player(board)
   puts
   puts "Make your move player one:"
   player_one_move = gets.chomp.to_s
+
   if player_one_move == "1"
     board[0] = "X"
     print_board(board)
@@ -289,24 +285,19 @@ def player1_vs_cpu_turn (board)
   end
 end
 
-require 'pry'
 def board_full(board)
 finished = false
-
   if board[0].to_i + board[1].to_i + board[2].to_i +
      board[3].to_i + board[4].to_i + board[5].to_i +
      board[6].to_i + board[7].to_i + board[8].to_i == 0
       puts "It's a tie!"
       finished = true
-
   end
 end
-binding.pry
-
 
 def check(board)
   finished = false
-  if board[0] == board[1] && board[0] == board[2]
+    if board[0] == board[1] && board[0] == board[2]
     puts "Game Over! You Win!"
     finished = true
   elsif board[3] == board[4] && board[3] == board[5]
