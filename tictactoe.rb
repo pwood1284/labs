@@ -8,7 +8,31 @@ board = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 def greeting(board)
   while true
+    puts
+    puts
+    puts
+    puts
+    puts
+    puts
+    puts
+    puts
+    puts
+    puts
+    puts
+    puts
     puts "Would you like to play a game of Tic Tac Toe? (Y/N)"
+    puts
+    puts
+    puts
+    puts
+    puts
+    puts
+    puts
+    puts
+    puts
+    puts
+    puts
+    puts
     puts
     answer = gets.chomp.downcase
       if answer == "y" || answer == "n"
@@ -33,13 +57,31 @@ end
 def game_mode?(board)
   while true
     puts
+    puts
+    puts
+    puts
+    puts
+    puts" _______ _          _______             _______         "
+    puts"|__   __(_)        |__   __|           |__   __|        "
+    puts"   | |   _  ___ ______| | __ _  ___ ______| | ___   ___ "
+    puts"   | |  | |/ __|______| |/ _` |/ __|______| |/ _   / _  "
+    puts"   | |  | | (__       | | (_| | (__       | | (_) |  __/"
+    puts"   |_|  |_| ___|      |_| __,_| ___|      |_| ___/  ___|"
+    puts
+    puts
     puts "Select the number for the Game Mode you would like to play:"
+    puts
+    puts
     puts "+-------------------+------------------------+-------------------------+ "
     puts "|   Human vs Human  |    Human vs Computer   |   Computer vs Computer  | "
     puts "|        (1)        |         (2)            |            (3)          | "
     puts "|                   |         N/A            |            N/A          |"
     puts "+-------------------+------------------------+-------------------------+"
-
+    puts
+    puts
+    puts
+    puts
+    puts
       answer = gets.chomp.to_s
         if answer == "1" || answer == "2" || answer == "3"
           if answer == "1"
@@ -92,14 +134,14 @@ end
 def print_board(board)
   puts
   puts
-puts" _______ _          _______             _______         "
-puts"|__   __(_)        |__   __|           |__   __|        "
-puts"   | |   _  ___ ______| | __ _  ___ ______| | ___   ___ "
-puts"   | |  | |/ __|______| |/ _` |/ __|______| |/ _   / _  "
-puts"   | |  | | (__       | | (_| | (__       | | (_) |  __/"
-puts"   |_|  |_| ___|      |_| __,_| ___|      |_| ___/  ___|"
-puts
-puts
+  puts" _______ _          _______             _______         "
+  puts"|__   __(_)        |__   __|           |__   __|        "
+  puts"   | |   _  ___ ______| | __ _  ___ ______| | ___   ___ "
+  puts"   | |  | |/ __|______| |/ _` |/ __|______| |/ _   / _  "
+  puts"   | |  | | (__       | | (_| | (__       | | (_) |  __/"
+  puts"   |_|  |_| ___|      |_| __,_| ___|      |_| ___/  ___|"
+  puts
+  puts
   puts "                          +     +     "
   puts "                       #{board[0]}  |  #{board[1]}  |  #{board[2]}  "
   puts "                     -----+-----+-----"
@@ -115,8 +157,9 @@ end
 def player_vs_player(board)
   print_board(board)
   puts
+  puts "Player one, you're X's"
+  puts "Make your move:"
   puts
-  puts "Make your move player one:"
   player_one_move = gets.chomp.to_s
 
   if player_one_move == "1"
@@ -173,8 +216,9 @@ end
 
 def player_two_turn (board)
   puts
+  puts "Player two, you're O's"
+  puts "Make your move:"
   puts
-  puts "Make your move player two:"
   player_two_move = gets.chomp.to_s
   if player_two_move == "1"
     board[0] = "O"
@@ -231,8 +275,9 @@ end
 def player1_vs_cpu_turn (board)
   print_board(board)
   puts
-  puts
+  puts "You're X's"
   puts "Make your move:"
+  puts
   player1_vs_cpu_move = gets.chomp.to_s
   if player1_vs_cpu_move == "1"
     board[0] = "X"
@@ -290,7 +335,31 @@ finished = false
   if board[0].to_i + board[1].to_i + board[2].to_i +
      board[3].to_i + board[4].to_i + board[5].to_i +
      board[6].to_i + board[7].to_i + board[8].to_i == 0
-      puts "It's a tie!"
+     puts
+     puts
+     puts
+     puts
+     puts
+     puts
+     puts
+     puts
+     puts
+     puts
+     puts
+     puts
+     puts "It's a tie!"
+     puts
+     puts
+     puts
+     puts
+     puts
+     puts
+     puts
+     puts
+     puts
+     puts
+     puts
+     puts
       finished = true
   end
 end
