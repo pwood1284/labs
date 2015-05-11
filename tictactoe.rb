@@ -109,25 +109,69 @@ def cpu_vs_cpu(board)
 end
 
 def cpu_vs_cpu_turn(board)
-board[0] = "X"
-print_board(board)
-board[4] = "O"
-print_board(board)
-board[2] = "X"
-print_board(board)
-board[1] = "O"
-print_board(board)
-board[7] = "X"
-print_board(board)
-board[5] = "O"
-print_board(board)
-board[3] = "X"
-print_board(board)
-board[6] = "O"
-print_board(board)
-board[8] = "O"
-print_board(board)
-puts "It's a tie!"
+  puts
+  puts
+  puts
+  puts
+  board[0] = "X"
+  print_board(board)
+  sleep(2)
+  puts
+  puts
+  puts
+  puts
+  board[4] = "O"
+  print_board(board)
+  sleep(2)
+  puts
+  puts
+  puts
+  puts
+  board[2] = "X"
+  print_board(board)
+  sleep(2)
+  puts
+  puts
+  puts
+  puts
+  board[1] = "O"
+  print_board(board)
+  sleep(2)
+  puts
+  puts
+  puts
+  puts
+  board[7] = "X"
+  print_board(board)
+  sleep(2)
+  puts
+  puts
+  puts
+  puts
+  board[5] = "O"
+  print_board(board)
+  sleep(2)
+  puts
+  puts
+  puts
+  puts
+  board[3] = "X"
+  print_board(board)
+  sleep(2)
+  puts
+  puts
+  puts
+  puts
+  board[6] = "O"
+  print_board(board)
+  sleep(2)
+  puts
+  puts
+  puts
+  puts
+  board[8] = "O"
+  print_board(board)
+  puts "It's a tie!"
 end
 
 
