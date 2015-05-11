@@ -75,7 +75,7 @@ def game_mode?(board)
     puts "+-------------------+------------------------+-------------------------+ "
     puts "|   Human vs Human  |    Human vs Computer   |   Computer vs Computer  | "
     puts "|        (1)        |         (2)            |            (3)          | "
-    puts "|                   |         N/A            |            N/A          |"
+    puts "|                   |                        |                         |"
     puts "+-------------------+------------------------+-------------------------+"
     puts
     puts
