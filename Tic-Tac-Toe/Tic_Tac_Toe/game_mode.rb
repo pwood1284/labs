@@ -35,6 +35,7 @@ class GameMode
               if answer == "1"
                 puts "Have fun you two!"
                 board = Board.new
+                
               elsif answer == "2"
                 human_vs_cpu(board)
               else
