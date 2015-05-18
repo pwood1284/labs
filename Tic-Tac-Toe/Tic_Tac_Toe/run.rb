@@ -1,52 +1,87 @@
-require '/.game_mode'
-require '/.board'
+require 'pry'
+# require '/.game_mode'
+require './board'
+require './player'
 
 class Run
   def initialize
-    def greeting(board)
-      while true
-        puts
-        puts
-        puts
-        puts
-        puts
-        puts
-        puts
-        puts
-        puts
-        puts
-        puts
-        puts
-        puts "Would you like to play a game of Tic Tac Toe? (Y/N)"
-        puts
-        puts
-        puts
-        puts
-        puts
-        puts
-        puts
-        puts
-        puts
-        puts
-        puts
-        puts
-        puts
-    answer = gets.chomp.downcase
-      if answer == "y" || answer == "n"
-        if answer == "y"
-          game_mode_initialize = GameMode.new
-          game_mode_initialize.game_mode?
+    @board = Board.new
+    puts "Player 1!"
+    @player1 = Player.new
+    puts "Player 2!"
+    @player2 = Player.new
+
+    # def greeting(board)
+    #   while true
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts "Would you like to play a game of Tic Tac Toe? (Y/N)"
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    #     puts
+    # answer = gets.chomp.downcase
+    #   if answer == "y" || answer == "n"
+    #     if answer == "y"
+    #       puts "code works"
+    #
+    #     else
+    #       puts "Ok. Come back when you are ready to play"
+    #       break
+    #     end
+    #   else
+    #     puts "Please answer with Yes or No"
+    #     end
+    #   end
+    # end
+  end
+
+  def game_over?
+    board.win? || board.draw?
+  end
+
+  def play
+    current_player = @player1
+    until game_over?
+      turn(current_player)
+        if current_player == @player1
+          current_player = @player2
         else
-          puts "Ok. Come back when you are ready to play"
-          break
+          current_player = @player1
         end
-      else
-        puts "Please answer with Yes or No"
-        end
-      end
     end
   end
+
+  def turn(player)
+    @board.show
+    index = player.get_move
+    letter = player.letter
+    @board.move(index, letter)
+  end
 end
+
+binding.pry
+
+
 
 def board_full(board)
 finished = false
@@ -66,6 +101,9 @@ finished = false
       finished = true
   end
 end
+
+
+
 
 def check(board)
   finished = false

@@ -1,4 +1,6 @@
-require '/.run/'
+require 'pry'
+require '/.run'
+require '/.board'
 
 class GameMode
   def initialize
@@ -30,22 +32,22 @@ class GameMode
         puts
         puts
         puts
-          answer = gets.chomp.to_s
-            if answer == "1" || answer == "2" || answer == "3"
-              if answer == "1"
-                puts "Have fun you two!"
-                board = Board.new
-                
+        answer = gets.chomp.to_s
+          if answer == "1" || answer == "2" || answer == "3"
+            if answer == "1"
+              puts "Have fun you two!"
+              board = Board.new
+              board
               elsif answer == "2"
-                human_vs_cpu(board)
+               human_vs_cpu(board)
               else
-                cpu_vs_cpu(board)
-              break
-              puts "Select a number between (1-3)"
-            end
+              cpu_vs_cpu(board)
+            break
+            puts "Select a number between (1-3)"
           end
         end
       end
     end
   end
 end
+binding.pry

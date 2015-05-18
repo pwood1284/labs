@@ -1,13 +1,23 @@
-# require 'pry'
-require './run'
+require 'pry'
+# require './run'
 # require './player'
 class Board
-
+  WINS = [[0,1,2],[3,4,5],]
   def initialize
-    @spaces = [1,2,3,4,5,6,7,8,9]
+    @spaces = (1..9).to_a
+  end
+  def win?
+    WINS.any? do |a, b, c|
+      @spaces[a]==@spaces[b]==@spaces[c]
+  end
+  def draw?
+    @spaces.all? {|x| x.is_a? String}
+  end
+  def move(space, piece)
+    @spaces[space-1] = piece
   end
 
-  def board
+  def show
     puts
     puts
     puts" _______ _          _______             _______         "
@@ -30,6 +40,9 @@ class Board
   end
 end
 
+# game_board = Board.new
+# game_board.board
 
 
-# binding.pry
+
+binding.pry
