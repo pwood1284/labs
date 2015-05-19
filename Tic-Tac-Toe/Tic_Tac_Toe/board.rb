@@ -8,7 +8,7 @@ class Board
   end
   def win?
     WINS.any? do |a, b, c|
-      @spaces[a] == @spaces[b] == @spaces[c]
+    @spaces[a] == @spaces[b] && @spaces[a] == @spaces[c]
   end
   def draw?
     @spaces.all? {|x| x.is_a? String}
@@ -39,10 +39,10 @@ class Board
     puts
   end
 end
-
+end
 # game_board = Board.new
 # game_board.board
 
 
-
-binding.pry
+#
+# binding.pry
